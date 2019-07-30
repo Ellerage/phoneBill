@@ -1,16 +1,19 @@
 export default class ApiService {
   mobileOperators = [
     {
-      name: 'MTS',
-      title: 'МТС'
+      name: 'mts',
+      title: 'МТС',
+      code: '912'
     },
     {
-      name: 'Beeline',
-      title: 'Билайн'
+      name: 'beeline',
+      title: 'Билайн',
+      code: '9__'
     },
     {
-      name: 'MegaFon',
-      title: 'МегаФон'
+      name: 'megafon',
+      title: 'МегаФон',
+      code: '922'
     }
   ]
 

@@ -7,7 +7,7 @@ class MobileOperator extends Component {
     return (
       <div className="MobileOperator">
         <Link to={`/${this.props.name}`}>
-          <p className="title">{this.props.name}</p>
+          <p className="title">{this.props.title}</p>
           <p className="link">Нажмите чтобы перейти к оплате</p>
         </Link>
       </div>
@@ -16,10 +16,3 @@ class MobileOperator extends Component {
 }
 
 export default MobileOperator;
-
-/*
-<div className="MobileOperator col-12">
-        <p>{this.props.name}</p>
-        <p><Link to={`/${this.props.name}`}>Перейти к оплате</Link></p>
-      </div>
-      */

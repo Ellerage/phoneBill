@@ -19,7 +19,7 @@ class HomePage extends Component {
 
   render() {
     return (
-      <div className="HomePage">
+      <div className="HomePage container">
         <h1>Оплата услуг сотовой связи</h1>
         <div className="row">
           {this.renderMobileOperators()}

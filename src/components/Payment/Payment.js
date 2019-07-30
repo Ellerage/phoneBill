@@ -5,8 +5,12 @@ import API from '../../services/api-service.js'
 
 class Payment extends Component {
   state = {
-    operatorInfo: {},
-    phoneValue: '',
+    operatorInfo: {
+      title: 'title',
+      name: 'name',
+      code: '9__'
+    },
+    phoneValue: '+7 (___) ___-__-__',
     amountValue: '',
     API: null,
     errorInfo: ''
@@ -16,17 +20,23 @@ class Payment extends Component {
     let api = new API()
     let operator = api.mobileOperators.find(i => i.name === this.props.match.params.operator)
 
-    this.setState({ 
-      operatorInfo: operator,
-      API: api
-    });
+    if(operator === undefined) {
+      this.props.history.push("/");
+    } else {
+      this.setState({ 
+        operatorInfo: operator,
+        API: api,
+        phoneValue: `+7 (${operator.code}) ___-__-__`
+      });
+    }
   }
 
   sendForm = async (e) => {
     e.preventDefault();
 
     if (this.state.phoneValue.replace(/[^0-9]/gim,'').length === 11) {
-      if (Number(this.state.amountValue) >= 1 && Number(this.state.amountValue) <= 1000) {
+
+      if (Number(this.state.amountValue) >= 1 && Number(this.state.amountValue) <= 1000 && this.state.amountValue.length > 0) {
         let response = await this.state.API.requestToServer({
           phoneNumber: this.state.phoneValue,
           amountValue: this.state.amountValue
@@ -34,13 +44,18 @@ class Payment extends Component {
 
         if (response) {
           alert('Оплата прошла успешно!')
-          this.setState({ errorInfo: false });
+          this.setState({ errorInfo: '' });
           this.props.history.push("/");
         } else {
           alert('Что-то пошло не так...')
-          this.setState({ errorInfo: true });
+          this.setState({ errorInfo: 'Произошла ошибка...' });
         }
+      } else {
+        this.setState({ errorInfo: 'Минимальная сумма пополнения 1₽. Максимальная 1000₽' });
       }
+      
+    } else {
+      this.setState({ errorInfo: 'Номер телефона должен содержать 11 символов' });
     }
   }
 
@@ -84,14 +99,12 @@ class Payment extends Component {
   }
 
   render() {
-    const showError = this.state.errorInfo === true ? 'Произошла ошибка...' : ''
-
     return (
-      <div>
+      <div className="Payment container">
         <h2>Оплата мобильного счета опаратора - {this.state.operatorInfo.title}</h2>
         <hr/>
 
-        <div className="error">{showError}</div>
+        <div className="error">{this.state.errorInfo}</div>
 
         <form onSubmit={this.sendForm}>
           <div className="form-group">
@@ -100,7 +113,8 @@ class Payment extends Component {
                               className="form-control" 
                               placeholder="Введите номер телефона" 
                               required onChange={this.inputPhone} 
-                              onFocus={this.inputPhone} 
+                              onFocus={this.inputPhone}
+                              onBlur={this.inputPhone}
                               value={this.state.phoneValue}/>
 
             <small id="phoneHelp" className="form-text text-muted">
