@@ -32,6 +32,11 @@ button, input {
   overflow: visible;
 }
 
+input {
+  color: transparent;
+  text-shadow: 0 0 0 black;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #007bff;

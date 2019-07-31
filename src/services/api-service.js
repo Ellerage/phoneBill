@@ -17,7 +17,7 @@ export default class ApiService {
     }
   ]
 
-  requestToServer = (payload) => {
+  requestToServer = async (payload) => {
     // fetch (url, {body: payload})
     
     let randomRes = Math.floor(Math.random() * 2)
