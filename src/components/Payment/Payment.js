@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import API from '../../services/api-service.js'
 
 import PaymentForm from './PaymentForm'
+import ErrorList from './ErrorList'
 
-import { Title, Hr, Errors } from './Payment.style'
+import { Title, Hr } from './Payment.style'
 
 class Payment extends Component {
   state = {
@@ -39,7 +40,7 @@ class Payment extends Component {
       <div>
         <Title>Оплата мобильного счета опаратора - {this.state.operatorInfo.title}</Title>
         <Hr/>
-        <Errors>{this.state.errorsList.map((err, i) => <div key={i}>{err}</div>)}</Errors>
+        <ErrorList errors={this.state.errorsList} />
         
         <PaymentForm {...this.state.operatorInfo} showError={(err) => this.showError(err)}/>
       </div>

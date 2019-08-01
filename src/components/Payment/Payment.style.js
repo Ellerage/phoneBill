@@ -16,8 +16,3 @@ export const Hr = styled.hr`
   height: 0;
   overflow: visible;
 `;
-
-export const Errors = styled.div`
-  color: red;
-  padding: 10px 0px;
-`;
