@@ -9,10 +9,10 @@ class Payment extends Component {
     operatorInfo: {
       title: 'title',
       name: 'name',
-      code: '9__'
+      code: '9'
     },
     API: null,
-    errorInfo: ''
+    errorsList: []
   }
 
   componentDidMount = () => {
@@ -30,7 +30,7 @@ class Payment extends Component {
   }
 
   showError = (err) => {
-    this.setState({ errorInfo: err });
+    this.setState({ errorsList: this.state.errorsList.concat(err) });
   }
 
   render() {
@@ -38,7 +38,7 @@ class Payment extends Component {
       <div className="Payment container">
         <h2>Оплата мобильного счета опаратора - {this.state.operatorInfo.title}</h2>
         <hr/>
-        <div className="error">{this.state.errorInfo}</div>
+        <div className="errors">{this.state.errorsList.map((err, i) => <div key={i}>{err}</div>)}</div>
         
         <PaymentForm {...this.state.operatorInfo} showError={(err) => this.showError(err)}/>
       </div>

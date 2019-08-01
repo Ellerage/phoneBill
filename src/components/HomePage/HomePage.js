@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './HomePage.css'
 
 import MobileOperator from '../MobileOperator'
 import API from '../../services/api-service.js'
 
-class HomePage extends Component {
-  state = {
-    mobileOperators: []
-  }
-
-  renderMobileOperators = () => {
+function HomePage () {
+  const renderMobileOperators = () => {
     let ApiEx = new API();
 
     return ApiEx.mobileOperators.map((operator) => {
@@ -17,16 +13,14 @@ class HomePage extends Component {
     })
   }
 
-  render() {
-    return (
-      <div className="HomePage container">
-        <h1>Оплата услуг сотовой связи</h1>
-        <div className="row">
-          {this.renderMobileOperators()}
-        </div>
+  return (
+    <div className="HomePage container">
+      <h1>Оплата услуг сотовой связи</h1>
+      <div className="row">
+        {renderMobileOperators()}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default HomePage;

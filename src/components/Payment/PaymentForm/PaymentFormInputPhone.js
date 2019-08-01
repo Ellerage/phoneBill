@@ -1,35 +1,13 @@
 import React, { Component } from 'react';
 
 class PaymentFormInputPhone extends Component {
-  setCursorPosition = (pos, elem) => {
-    elem.focus();
-    if (elem.setSelectionRange) elem.setSelectionRange(pos, pos);
-    else if (elem.createTextRange) {
-        var range = elem.createTextRange();
-        range.collapse(true);
-        range.moveEnd("character", pos);
-        range.moveStart("character", pos);
-        range.select()
-    }
-  }
-
   inputPhone = (e) => {
-      let value = e.target.value;
-      let matrix = "+7 (___) ___-__-__";
-      let i = 0;
-      let def = matrix.replace(/\D/g, "");
-      let val = value.replace(/\D/g, "");
+    let value = e.target.value;
 
-      if (def.length >= val.length) val = def;
+    let x = value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+    let result = !x[2] ? `+${x[1]}` : `+${x[1]} (${x[2]}) ` + x[3] + (x[4] ? `-${x[4]}` : '') + (x[5] ? `-${x[5]}` : '') + (x[6] ? `-${x[6]}` : '');
 
-      value = matrix.replace(/./g, function(a) {
-          return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
-      });
-      if (e.type === "blur") {
-          if (value.length === 2) value = ""
-      } else this.setCursorPosition(value.length, e.target)
-
-      this.props.changeValue({name: e.target.id, value})
+    this.props.changeValue({name: e.target.id, value: result})
   }
 
   render() {

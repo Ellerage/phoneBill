@@ -7,28 +7,30 @@ import API from '../../../services/api-service.js'
 
 class PaymentForm extends Component {
   state = {
-    phoneNumber: '+7 (___) ___-__-__',
+    phoneNumber: '',
     amount: '',
     isLoad: false
   }
 
   componentDidMount = () => {
-    this.setState({ phoneNumber: `+7 (${this.props.code}) ___-__-__`});
+    this.setState({ phoneNumber: `+7 ${this.props.code}`});
   }
 
   sendForm = async (e) => {
     e.preventDefault();
 
-    let validate = [this.state.phoneNumber.replace(/[^0-9]/gim,'').length === 11,
-                    Number(this.state.amount) >= 1,
-                    Number(this.state.amount) <= 1000,
-                    this.state.amount.length > 0
+    let validate = [this.state.phoneNumber.replace(/[^0-9]/gim,'').length === 11 ? '' : 'Номер телефона должен содержать 11 цифр',
+                    Number(this.state.amount) >= 1    ? '' : 'Минимальная сумма 1₽',
+                    Number(this.state.amount) <= 1000 ? '' : 'Сумма не должна превышать 1000₽',
+                    this.state.amount.length > 0      ? '' : 'Введите сумму пополнения'
                     ]
 
-    if (!validate.every(cur => cur === true)) {
-      this.props.showError('Введите корректные данные')
+    let errorsValidate = validate.filter(validateItem => validateItem);
+    if (errorsValidate.length > 0) {
+      this.props.showError(errorsValidate)
       return;
     }
+
     this.setState({ isLoad: true });
 
     let api = new API()
@@ -41,11 +43,12 @@ class PaymentForm extends Component {
     if (response) {
       alert('Оплата прошла успешно!')
       this.props.history.push("/");
-    } else {
-      alert('Что-то пошло не так...')
-      this.props.showError('Произошла ошибка...')
-      this.setState({ isLoad: false });
+      return;
     }
+
+    alert('Что-то пошло не так...')
+    this.props.showError('Произошла ошибка...')
+    this.setState({ isLoad: false });
   }
 
   changeValue = ({name, value}) => {
