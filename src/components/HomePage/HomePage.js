@@ -1,8 +1,9 @@
 import React from 'react';
-import './HomePage.css'
 
 import MobileOperator from '../MobileOperator'
 import API from '../../services/api-service.js'
+
+import { Container, Title, Row } from './HomePage.style'
 
 function HomePage () {
   const renderMobileOperators = () => {
@@ -14,12 +15,10 @@ function HomePage () {
   }
 
   return (
-    <div className="HomePage container">
-      <h1>Оплата услуг сотовой связи</h1>
-      <div className="row">
-        {renderMobileOperators()}
-      </div>
-    </div>
+    <Container>
+      <Title>Оплата услуг сотовой связи</Title>
+      <Row>{ renderMobileOperators() }</Row>
+    </Container>
   );
 }
 

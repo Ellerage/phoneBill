@@ -1,15 +1,14 @@
 import React from 'react';
-import './MobileOperator.css'
-import { Link } from "react-router-dom";
+import { WrapMobileOperator, Title, StyledLink } from './MobileOperator.style'
 
 function MobileOperator ({name, title}) {
   return (
-    <div className="MobileOperator">
-      <Link to={`/${name}`}>
-        <p className="title">{title}</p>
-        <p className="link">Нажмите чтобы перейти к оплате</p>
-      </Link>
-    </div>
+    <WrapMobileOperator>
+      <StyledLink to={`/${name}`}>
+        <Title>{title}</Title>
+        <p>Нажмите чтобы перейти к оплате</p>
+      </StyledLink>
+    </WrapMobileOperator>
   );
 }
 

@@ -1,2 +1,2 @@
-import MobileOperator from './MobileOperator.js'
+import MobileOperator from './MobileOperator'
 export default MobileOperator;

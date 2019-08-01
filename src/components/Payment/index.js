@@ -1,2 +1,2 @@
-import Payment from './Payment.js'
+import Payment from './Payment'
 export default Payment;

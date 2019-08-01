@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import PaymentFormInputPhone from './PaymentFormInputPhone.js'
-import PaymentFormInputAmount from './PaymentFormInputAmount.js'
+import PaymentFormInputPhone from './PaymentFormInputPhone'
+import PaymentFormInputAmount from './PaymentFormInputAmount'
 import { withRouter } from "react-router-dom";
 
 import API from '../../../services/api-service.js'
+
+import { Button } from './PaymentForm.style'
 
 class PaymentForm extends Component {
   state = {
@@ -62,11 +64,11 @@ class PaymentForm extends Component {
           <PaymentFormInputPhone phoneNumber={this.state.phoneNumber} changeValue={(val) => this.changeValue(val)} />
           <PaymentFormInputAmount amount={this.state.amount} changeValue={(val) => this.changeValue(val)}/>
 
-          <button type="submit" className="btn btn-primary">{this.state.isLoad ? 'Опалата...' : 'Оплатить' }</button>
+          <Button type="submit">{this.state.isLoad ? 'Опалата...' : 'Оплатить' }</Button>
         </form>
       </div>
     );
   }
 }
-
+// <button type="submit" className="btn btn-primary">{this.state.isLoad ? 'Опалата...' : 'Оплатить' }</button>
 export default withRouter(PaymentForm);

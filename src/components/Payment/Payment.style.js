@@ -1,0 +1,30 @@
+import styled from 'styled-components';
+
+export const Container = styled.div`
+  max-width: 1140px;
+  padding: 0px 15px;
+  margin: 0 auto;
+  width: 85%;
+`;
+
+export const Title = styled.h2`
+  margin-bottom: .5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 2rem;
+`;
+
+export const Hr = styled.hr`
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,.1);
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+`;
+
+export const Errors = styled.div`
+  color: red;
+  padding: 10px 0px;
+`;

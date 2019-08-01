@@ -1,2 +1,2 @@
-import PaymentForm from './PaymentForm.js'
+import PaymentForm from './PaymentForm'
 export default PaymentForm;

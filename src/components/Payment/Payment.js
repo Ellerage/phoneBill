@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import './Payment.css'
 import API from '../../services/api-service.js'
 
 import PaymentForm from './PaymentForm'
+
+import { Container, Title, Hr, Errors } from './Payment.style'
 
 class Payment extends Component {
   state = {
@@ -35,13 +36,13 @@ class Payment extends Component {
 
   render() {
     return (
-      <div className="Payment container">
-        <h2>Оплата мобильного счета опаратора - {this.state.operatorInfo.title}</h2>
-        <hr/>
-        <div className="errors">{this.state.errorsList.map((err, i) => <div key={i}>{err}</div>)}</div>
+      <Container>
+        <Title>Оплата мобильного счета опаратора - {this.state.operatorInfo.title}</Title>
+        <Hr/>
+        <Errors>{this.state.errorsList.map((err, i) => <div key={i}>{err}</div>)}</Errors>
         
         <PaymentForm {...this.state.operatorInfo} showError={(err) => this.showError(err)}/>
-      </div>
+      </Container>
     );
   }
 }

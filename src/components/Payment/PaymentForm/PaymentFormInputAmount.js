@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FromGroup, Label, Input, Small } from './PaymentFormInput.styles'
 
 class PaymentFormInputAmount extends Component {
   inputAmount = (e) => {
@@ -11,20 +12,19 @@ class PaymentFormInputAmount extends Component {
 
   render() {
     return (
-      <div className="form-group">
-        <label htmlFor="amount">Сумма пополнения ₽</label>
-        <input type="text" id="amount" 
-                          className="form-control" 
-                          placeholder="Сумма пополнения" 
-                          required
-                          onChange={this.inputAmount}
-                          value={this.props.amount}
-                          />
+      <FromGroup>
+        <Label htmlFor="amount">Сумма пополнения ₽</Label>
+        <Input type="text" 
+                id="amount" 
+                placeholder="Сумма пополнения" 
+                required
+                onChange={this.inputAmount}
+                value={this.props.amount}/>
 
-        <small id="amountHelp" className="form-text text-muted">
+        <Small id="amountHelp">
           Минимальная сумма пополнения 1₽. Максимальная 1000₽
-        </small>
-      </div>
+        </Small>
+      </FromGroup>
     );
   }
 }

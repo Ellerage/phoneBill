@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FromGroup, Label, Input, Small } from './PaymentFormInput.styles'
 
 class PaymentFormInputPhone extends Component {
   inputPhone = (e) => {
@@ -12,19 +13,19 @@ class PaymentFormInputPhone extends Component {
 
   render() {
     return (
-      <div className="form-group">
-        <label htmlFor="phoneNumber">Номер телефона</label>
-        <input type="tel" id="phoneNumber" 
-                          className="form-control" 
-                          placeholder="Введите номер телефона" 
-                          required 
-                          onChange={this.inputPhone}
-                          value={this.props.phoneNumber}/>
+      <FromGroup>
+        <Label htmlFor="phoneNumber">Номер телефона</Label>
+        <Input type="tel" 
+                id="phoneNumber" 
+                placeholder="Введите номер телефона" 
+                required 
+                onChange={this.inputPhone}
+                value={this.props.phoneNumber}/>
 
-        <small id="phoneHelp" className="form-text text-muted">
+        <Small id="phoneHelp">
           Формат номера: +7 (XXX) XXX-XX-XX
-        </small>
-      </div>
+        </Small>
+      </FromGroup>
     );
   }
 }
