@@ -3,7 +3,7 @@ import React from 'react';
 import MobileOperator from '../MobileOperator'
 import API from '../../services/api-service.js'
 
-import { Container, Title, Row } from './HomePage.style'
+import { Title, Row } from './HomePage.style'
 
 function HomePage () {
   const renderMobileOperators = () => {
@@ -15,10 +15,10 @@ function HomePage () {
   }
 
   return (
-    <Container>
+    <div>
       <Title>Оплата услуг сотовой связи</Title>
       <Row>{ renderMobileOperators() }</Row>
-    </Container>
+    </div>
   );
 }
 

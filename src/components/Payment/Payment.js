@@ -3,7 +3,7 @@ import API from '../../services/api-service.js'
 
 import PaymentForm from './PaymentForm'
 
-import { Container, Title, Hr, Errors } from './Payment.style'
+import { Title, Hr, Errors } from './Payment.style'
 
 class Payment extends Component {
   state = {
@@ -36,13 +36,13 @@ class Payment extends Component {
 
   render() {
     return (
-      <Container>
+      <div>
         <Title>Оплата мобильного счета опаратора - {this.state.operatorInfo.title}</Title>
         <Hr/>
         <Errors>{this.state.errorsList.map((err, i) => <div key={i}>{err}</div>)}</Errors>
         
         <PaymentForm {...this.state.operatorInfo} showError={(err) => this.showError(err)}/>
-      </Container>
+      </div>
     );
   }
 }
