@@ -25,8 +25,6 @@ export const Input = styled.input`
   border: 1px solid #ced4da;
   border-radius: .25rem;
   overflow: visible;
-  color: transparent;
-  text-shadow: 0 0 0 black;
 `;
 
 export const Small = styled.small`

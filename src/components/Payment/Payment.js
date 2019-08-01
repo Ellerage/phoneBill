@@ -19,7 +19,7 @@ class Payment extends Component {
   componentDidMount = () => {
     let api = new API()
     let operator = api.mobileOperators.find(i => i.name === this.props.match.params.operator)
-
+    
     if(operator === undefined) {
       this.props.history.push("/");
     } else {

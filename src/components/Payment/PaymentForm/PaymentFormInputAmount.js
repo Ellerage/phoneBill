@@ -6,7 +6,7 @@ class PaymentFormInputAmount extends Component {
     let value = e.target.value;
 
     if ((Number(value) >= 1 || value.length === 0) && Number(value) <= 1000) {
-      this.props.changeValue({name: e.target.id, value})
+      this.props.changeValue({name: e.target.name, value})
     }
   }
 
@@ -15,7 +15,8 @@ class PaymentFormInputAmount extends Component {
       <FromGroup>
         <Label htmlFor="amount">Сумма пополнения ₽</Label>
         <Input type="text" 
-                id="amount" 
+                id="amount"
+                name="amount"
                 placeholder="Сумма пополнения" 
                 required
                 onChange={this.inputAmount}
