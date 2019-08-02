@@ -20,7 +20,7 @@ class Payment extends Component {
   componentDidMount = () => {
     let api = new API()
     let operator = api.mobileOperators.find(i => i.name === this.props.match.params.operator)
-    
+
     if(operator === undefined) {
       this.props.history.push("/");
     } else {
@@ -32,7 +32,7 @@ class Payment extends Component {
   }
 
   showError = (err) => {
-    this.setState({ errorsList: this.state.errorsList.concat(err) });
+    this.setState({ errorsList: err });
   }
 
   render() {
