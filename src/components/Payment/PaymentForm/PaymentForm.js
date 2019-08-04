@@ -24,12 +24,11 @@ class PaymentForm extends Component {
     e.preventDefault();
 
     let validate = [
-                    this.state.phoneNumber.replace(/[^0-9]/gim,'').length === 11 ? '' : 'Номер телефона должен содержать 11 цифр',
-                    Number(this.state.amount) >= 1    ? '' : 'Минимальная сумма 1₽',
-                    Number(this.state.amount) <= 1000 ? '' : 'Сумма не должна превышать 1000₽',
-                    this.state.amount.length > 0      ? '' : 'Введите сумму пополнения'
-                    ]
-
+      this.state.phoneNumber.replace(/[^0-9]/gim,'').length === 11 || 'Номер телефона должен содержать 11 цифр',
+      Number(this.state.amount) >= 1                               || 'Минимальная сумма 1₽',
+      Number(this.state.amount) <= 1000                            || 'Сумма не должна превышать 1000₽'
+    ]
+                    
     let errorsValidate = validate.filter(validateItem => validateItem);
     
     if (errorsValidate.length > 0) {
