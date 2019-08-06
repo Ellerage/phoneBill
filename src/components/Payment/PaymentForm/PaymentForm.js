@@ -63,12 +63,12 @@ class PaymentForm extends Component {
   render() {
     return (
       <form onSubmit={this.sendForm}>
-          <PaymentFormInputPhone phoneNumber={this.state.phoneNumber} changeValue={(val) => this.changeValue(val)} />
-          <PaymentFormInputAmount amount={this.state.amount} changeValue={(val) => this.changeValue(val)}/>
+        <PaymentFormInputPhone phoneNumber={this.state.phoneNumber} changeValue={(val) => this.changeValue(val)} />
+        <PaymentFormInputAmount amount={this.state.amount} changeValue={(val) => this.changeValue(val)}/>
 
-          <Button type="submit">
-            {this.state.isLoad ? 'Опалата...' : 'Оплатить' }
-          </Button>
+        <Button type="submit">
+          {this.state.isLoad ? 'Опалата...' : 'Оплатить' }
+        </Button>
       </form>
     );
   }
