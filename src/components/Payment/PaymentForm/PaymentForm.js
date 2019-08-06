@@ -52,7 +52,7 @@ class PaymentForm extends Component {
     }
 
     alert('Что-то пошло не так...')
-    this.props.showError('Произошла ошибка...')
+    this.props.showError(['Произошла ошибка...'])
     this.setState({ isLoad: false });
   }
 
