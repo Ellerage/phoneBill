@@ -8,7 +8,7 @@ export default class ApiService {
     {
       name: 'beeline',
       title: 'Билайн',
-      code: '9__'
+      code: '9'
     },
     {
       name: 'megafon',
