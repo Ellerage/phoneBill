@@ -28,9 +28,9 @@ class PaymentForm extends Component {
       Number(this.state.amount) >= 1                               || 'Минимальная сумма 1₽',
       Number(this.state.amount) <= 1000                            || 'Сумма не должна превышать 1000₽'
     ]
-                    
-    let errorsValidate = validate.filter(validateItem => validateItem);
-    
+
+    let errorsValidate = validate.filter(validateItem => validateItem !== true);
+
     if (errorsValidate.length > 0) {
       this.props.showError(errorsValidate)
       return;
@@ -62,16 +62,14 @@ class PaymentForm extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.sendForm}>
+      <form onSubmit={this.sendForm}>
           <PaymentFormInputPhone phoneNumber={this.state.phoneNumber} changeValue={(val) => this.changeValue(val)} />
           <PaymentFormInputAmount amount={this.state.amount} changeValue={(val) => this.changeValue(val)}/>
 
           <Button type="submit">
             {this.state.isLoad ? 'Опалата...' : 'Оплатить' }
           </Button>
-        </form>
-      </div>
+      </form>
     );
   }
 }
