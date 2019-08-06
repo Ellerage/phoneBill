@@ -11,7 +11,7 @@ class Payment extends Component {
     operatorInfo: {
       title: 'title',
       name: 'name',
-      code: '9'
+      code: '9__'
     },
     API: null,
     errorsList: []

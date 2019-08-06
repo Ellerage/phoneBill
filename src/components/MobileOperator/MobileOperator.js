@@ -1,7 +1,7 @@
 import React from 'react';
 import { WrapMobileOperator, Title, StyledLink } from './MobileOperator.style'
 
-function MobileOperator ({name, title}) {
+function MobileOperator ({ name, title }) {
   return (
     <WrapMobileOperator>
       <StyledLink to={`/${name}`}>

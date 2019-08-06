@@ -5,14 +5,6 @@ import styled from 'styled-components';
 import HomePage from '../HomePage'
 import Payment from '../Payment/index.js'
 
-
-const Container = styled.div`
-  max-width: 1140px;
-  padding: 0px 15px;
-  margin: 0 auto;
-  width: 85%;
-`;
-
 function App() {
   return (
     <Container>
@@ -23,5 +15,12 @@ function App() {
     </Container>
   );
 }
+
+const Container = styled.div`
+  max-width: 1140px;
+  padding: 0px 15px;
+  margin: 0 auto;
+  width: 85%;
+`;
 
 export default App;

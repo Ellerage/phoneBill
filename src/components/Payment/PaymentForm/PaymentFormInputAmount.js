@@ -10,7 +10,7 @@ function PaymentFormInputAmount ({ amount, changeValue }) {
       changeValue({
         name: e.target.name, 
         value
-        })
+      })
     }
   }
 
