@@ -1,8 +1,13 @@
 import React from 'react';
 import { FromGroup, Label, Input, Small } from './PaymentFormInput.styles'
 
-function PaymentFormInputPhone ({ phoneNumber, changeValue }) {
-  const inputPhone = (e) => {
+type PaymentFormInputPhoneProps = {
+  phoneNumber: string,
+  changeValue: any
+}
+
+function PaymentFormInputPhone ({ phoneNumber, changeValue } : PaymentFormInputPhoneProps) {
+  const inputPhone = (e : any) => {
     let value = e.target.value;
 
     let x = value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);

@@ -6,7 +6,12 @@ import ErrorList from './ErrorList'
 
 import { Title, Hr } from './Payment.style'
 
-class Payment extends Component {
+type PaymentProps = {
+  match: any,
+  history: any
+}
+
+class Payment extends Component<PaymentProps> {
   state = {
     operatorInfo: {
       title: 'title',
@@ -31,7 +36,7 @@ class Payment extends Component {
     }
   }
 
-  showError = (err) => {
+  showError = (err : any) => {
     this.setState({ errorsList: err });
   }
 
@@ -42,7 +47,7 @@ class Payment extends Component {
         <Hr/>
         <ErrorList errors={this.state.errorsList} />
         
-        <PaymentForm {...this.state.operatorInfo} showError={(err) => this.showError(err)}/>
+        <PaymentForm {...this.state.operatorInfo} showError={(err : any) => this.showError(err)}/>
       </div>
     );
   }

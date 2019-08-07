@@ -1,9 +1,14 @@
 import React from 'react';
 import { FromGroup, Label, Input, Small } from './PaymentFormInput.styles'
 
-function PaymentFormInputAmount ({ amount, changeValue }) {
+type PaymentFormInputAmountProps = {
+  amount: string,
+  changeValue: any
+}
 
-  const inputAmount = (e) => {
+function PaymentFormInputAmount ({ amount, changeValue } : PaymentFormInputAmountProps) {
+
+  const inputAmount = (e : any) => {
     let value = e.target.value;
 
     if ((Number(value) >= 1 || value.length === 0) && Number(value) <= 1000) {

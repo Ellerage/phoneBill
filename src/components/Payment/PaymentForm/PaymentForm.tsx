@@ -1,26 +1,38 @@
 import React, { Component } from 'react';
 import PaymentFormInputPhone from './PaymentFormInputPhone'
 import PaymentFormInputAmount from './PaymentFormInputAmount'
-import { withRouter } from "react-router-dom";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 
 import API from '../../../services/api-service.js'
 
 import { Button } from './PaymentForm.style'
 
-class PaymentForm extends Component {
-  state = {
+interface PaymentFormProps extends RouteComponentProps<any> {
+  code: string,
+  showError: any,
+  history: any
+}
+
+interface IState {
+  phoneNumber: any,
+  amount: any,
+  isLoad: boolean
+}
+
+class PaymentForm extends Component<PaymentFormProps> {
+  state: IState = {
     phoneNumber: '',
     amount: '',
     isLoad: false
   }
 
-  componentDidUpdate = (prevProps) => {
+  componentDidUpdate = (prevProps : any) => {
     if (this.props.code !== prevProps.code) {
       this.setState({ phoneNumber: `+7 ${this.props.code}` });
     }
   }
 
-  sendForm = async (e) => {
+  sendForm = async (e : React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     let validate = [
@@ -56,15 +68,15 @@ class PaymentForm extends Component {
     this.setState({ isLoad: false });
   }
 
-  changeValue = ({name, value}) => {
+  changeValue = ({ name, value }: {name: string, value: string}) => {
     this.setState({ [name]: value });
   }
 
   render() {
     return (
       <form onSubmit={this.sendForm}>
-        <PaymentFormInputPhone phoneNumber={this.state.phoneNumber} changeValue={(val) => this.changeValue(val)} />
-        <PaymentFormInputAmount amount={this.state.amount} changeValue={(val) => this.changeValue(val)}/>
+        <PaymentFormInputPhone phoneNumber={this.state.phoneNumber} changeValue={(val : any) => this.changeValue(val)} />
+        <PaymentFormInputAmount amount={this.state.amount} changeValue={(val: any) => this.changeValue(val)}/>
 
         <Button type="submit">
           {this.state.isLoad ? 'Опалата...' : 'Оплатить' }

@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import styled from 'styled-components';
 
 import HomePage from '../HomePage'
-import Payment from '../Payment/index.js'
+import Payment from '../Payment'
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
   );
 }
 
-const Container = styled.div`
+const Container = styled("div")`
   max-width: 1140px;
   padding: 0px 15px;
   margin: 0 auto;
