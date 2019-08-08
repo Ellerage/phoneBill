@@ -8,7 +8,7 @@ type PaymentFormInputPhoneProps = {
 
 function PaymentFormInputPhone ({ phoneNumber, changeValue } : PaymentFormInputPhoneProps) {
   const inputPhone = (e : React.ChangeEvent<HTMLInputElement>) => {
-    const { value, name } = e.target;
+    const { value } = e.target;
 
     let x : any = value.replace(/\D/g, '')
                         .match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
@@ -26,7 +26,7 @@ function PaymentFormInputPhone ({ phoneNumber, changeValue } : PaymentFormInputP
       result += x[i] ? `-${x[i]}` : ''
     }
 
-    changeValue({name, value: result})
+    changeValue(result)
   }
 
   return (

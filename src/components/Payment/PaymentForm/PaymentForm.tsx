@@ -1,91 +1,73 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import PaymentFormInputPhone from './PaymentFormInputPhone'
 import PaymentFormInputAmount from './PaymentFormInputAmount'
+
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
 import API from '../../../services/api-service.js'
-
 import { Button } from './PaymentForm.style'
 
-interface PaymentFormProps extends RouteComponentProps<{}> {
+interface IPaymentFormProps extends RouteComponentProps<{}> {
   code: string,
-  showError: Function,
-  history: any
+  history: any,
+  showError: Function
 }
 
-interface IState {
-  phoneNumber: any,
-  amount: any,
-  isLoad: boolean
-}
+const PaymentForm = ({code, showError, history}: IPaymentFormProps) => {
+  const [ phoneNumber, changePhoneNumber ] = useState('')
+  const [ amount, changeAmount ] = useState('')
+  const [ isLoad, changeLoadStatus ] = useState(false)
 
-class PaymentForm extends Component<PaymentFormProps> {
-  state: IState = {
-    phoneNumber: '',
-    amount: '',
-    isLoad: false
-  }
+  useEffect(() => {
+    changePhoneNumber(`+7 ${code}`)
+  }, [code])
 
-  componentDidUpdate = (prevProps : any) => {
-    if (this.props.code !== prevProps.code) {
-      this.setState({ phoneNumber: `+7 ${this.props.code}` });
-    }
-  }
-
-  sendForm = async (e : React.FormEvent<HTMLFormElement>) => {
+  const sendForm = async (e : React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     let validate = [
-      this.state.phoneNumber.replace(/[^0-9]/gim,'').length === 11 || 'Номер телефона должен содержать 11 цифр',
-      Number(this.state.amount) >= 1                               || 'Минимальная сумма 1₽',
-      Number(this.state.amount) <= 1000                            || 'Сумма не должна превышать 1000₽'
+      phoneNumber.replace(/[^0-9]/gim,'').length === 11 || 'Номер телефона должен содержать 11 цифр',
+      Number(amount) >= 1                               || 'Минимальная сумма 1₽',
+      Number(amount) <= 1000                            || 'Сумма не должна превышать 1000₽'
     ]
 
-    let errorsValidate = validate.filter(validateItem => validateItem !== true);
+    const errorsValidate = validate.filter(validateItem => validateItem !== true);
 
     if (errorsValidate.length > 0) {
-      this.props.showError(errorsValidate)
+      showError(errorsValidate)
       return;
     }
 
-    this.setState({ isLoad: true });
+    changeLoadStatus(true)
 
-    let api = new API()
+    const api = new API()
 
     let response = await api.requestToServer({
-      phoneNumber: this.state.phoneNumber,
-      amount: this.state.amount
+      phoneNumber,
+      amount
     })
 
     if (response) {
       alert('Оплата прошла успешно!')
-      this.props.history.push("/");
+      history.push("/");
       return;
     }
 
     alert('Что-то пошло не так...')
-    this.props.showError(['Произошла ошибка...'])
-    this.setState({ isLoad: false });
+    showError(['Произошла ошибка...'])
+    changeLoadStatus(false)
   }
 
-  changeValue = ({ name, value }: {name: string, value: string}) => {
-    this.setState({ [name]: value });
-  }
+  return (
+    <form onSubmit={sendForm}>
+      <PaymentFormInputPhone phoneNumber={phoneNumber} changeValue={(val: string) => changePhoneNumber(val)} />
+      <PaymentFormInputAmount amount={amount} changeValue={(val: string) => changeAmount(val)}/>
 
-  render() {
-    const { phoneNumber, amount } = this.state;
-
-    return (
-      <form onSubmit={this.sendForm}>
-        <PaymentFormInputPhone phoneNumber={phoneNumber} changeValue={(val: any) => this.changeValue(val)} />
-        <PaymentFormInputAmount amount={amount} changeValue={(val: any) => this.changeValue(val)}/>
-
-        <Button type="submit">
-          {this.state.isLoad ? 'Опалата...' : 'Оплатить' }
-        </Button>
-      </form>
-    );
-  }
+      <Button type="submit">
+        {isLoad ? 'Опалата...' : 'Оплатить' }
+      </Button>
+    </form>
+  );
 }
 
 export default withRouter(PaymentForm);

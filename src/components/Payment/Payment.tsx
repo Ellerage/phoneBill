@@ -13,7 +13,7 @@ interface IPaymentProps {
 
 export function Payment ({ match, history }: IPaymentProps) {
   const [errorsList, addErrors] = useState([])
-  const [operatorInfo, setOperator] = useState({ title: 'title', name: 'name', code: '' })
+  const [operatorInfo, setOperator] = useState({ title: '...', name: '...', code: '9' })
 
   
   useEffect(() => {
@@ -25,8 +25,7 @@ export function Payment ({ match, history }: IPaymentProps) {
     } else {
       setOperator(operator)
     }
-
-  }, [operatorInfo])
+  }, [history, match])
 
   const showError = (err : any) => {
     addErrors(err)

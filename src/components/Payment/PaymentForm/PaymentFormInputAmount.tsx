@@ -9,10 +9,10 @@ type PaymentFormInputAmountProps = {
 function PaymentFormInputAmount ({ amount, changeValue } : PaymentFormInputAmountProps) {
 
   const inputAmount = (e : React.ChangeEvent<HTMLInputElement>) => {
-    let { value, name } = e.target;
+    let { value } = e.target;
 
     if ((Number(value) >= 1 || value.length === 0) && Number(value) <= 1000) {
-      changeValue({ name, value })
+      changeValue(value)
     }
   }
 
