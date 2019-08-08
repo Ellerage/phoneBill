@@ -13,20 +13,18 @@ interface IPaymentProps {
 
 export function Payment ({ match, history }: IPaymentProps) {
   const [errorsList, addErrors] = useState([])
-  const [operatorInfo, setOperator] = useState({ title: 'title', name: 'name', code: '' })
+  const [operatorInfo, setOperator] = useState({ title: '...', name: '...', code: '9' })
 
-  
   useEffect(() => {
     let api = new API();
-    let operator = api.mobileOperators.find(i => i.name === match.params.operator)
+    let operator = api.mobileOperators.find(operator => operator.name === match.params.operator)
     
     if(operator === undefined) {
       history.push("/");
     } else {
       setOperator(operator)
     }
-
-  }, [operatorInfo])
+  }, [history, match])
 
   const showError = (err : any) => {
     addErrors(err)
