@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Button = styled.button`
+export const Button = styled("button")`
   display: inline-block;
   font-weight: 400;
   text-align: center;

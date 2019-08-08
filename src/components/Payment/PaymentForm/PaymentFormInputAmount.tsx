@@ -3,17 +3,17 @@ import { FromGroup, Label, Input, Small } from './PaymentFormInput.styles'
 
 type PaymentFormInputAmountProps = {
   amount: string,
-  changeValue: any
+  changeValue: Function
 }
 
 function PaymentFormInputAmount ({ amount, changeValue } : PaymentFormInputAmountProps) {
 
-  const inputAmount = (e : any) => {
-    let value = e.target.value;
+  const inputAmount = (e : React.ChangeEvent<HTMLInputElement>) => {
+    let { value, name } = e.target;
 
     if ((Number(value) >= 1 || value.length === 0) && Number(value) <= 1000) {
       changeValue({
-        name: e.target.name, 
+        name, 
         value
       })
     }

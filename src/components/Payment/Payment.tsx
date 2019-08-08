@@ -11,8 +11,18 @@ type PaymentProps = {
   history: any
 }
 
-class Payment extends Component<PaymentProps> {
-  state = {
+interface IState {
+  operatorInfo: {
+    title: string,
+    name: string,
+    code: string
+  },
+  API: any,
+  errorsList: string[]
+}
+
+class Payment extends Component<PaymentProps, IState> {
+  state: IState = {
     operatorInfo: {
       title: 'title',
       name: 'name',

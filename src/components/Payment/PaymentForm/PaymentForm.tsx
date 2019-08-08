@@ -7,7 +7,7 @@ import API from '../../../services/api-service.js'
 
 import { Button } from './PaymentForm.style'
 
-interface PaymentFormProps extends RouteComponentProps<any> {
+interface PaymentFormProps extends RouteComponentProps<{}> {
   code: string,
   showError: any,
   history: any
@@ -73,10 +73,12 @@ class PaymentForm extends Component<PaymentFormProps> {
   }
 
   render() {
+    const { phoneNumber, amount } = this.state;
+
     return (
       <form onSubmit={this.sendForm}>
-        <PaymentFormInputPhone phoneNumber={this.state.phoneNumber} changeValue={(val : any) => this.changeValue(val)} />
-        <PaymentFormInputAmount amount={this.state.amount} changeValue={(val: any) => this.changeValue(val)}/>
+        <PaymentFormInputPhone phoneNumber={phoneNumber} changeValue={(val: any) => this.changeValue(val)} />
+        <PaymentFormInputAmount amount={amount} changeValue={(val: any) => this.changeValue(val)}/>
 
         <Button type="submit">
           {this.state.isLoad ? 'Опалата...' : 'Оплатить' }

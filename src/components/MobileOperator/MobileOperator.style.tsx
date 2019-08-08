@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
-export const Title = styled.p`
+export const Title = styled("p")`
   font-size: 22px;
 `;
 
-export const WrapMobileOperator = styled.div`
+export const WrapMobileOperator = styled("div")`
   border: 1px solid grey;
   width: 100%;
   padding: 0.6rem;
