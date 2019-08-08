@@ -12,10 +12,7 @@ function PaymentFormInputAmount ({ amount, changeValue } : PaymentFormInputAmoun
     let { value, name } = e.target;
 
     if ((Number(value) >= 1 || value.length === 0) && Number(value) <= 1000) {
-      changeValue({
-        name, 
-        value
-      })
+      changeValue({ name, value })
     }
   }
 

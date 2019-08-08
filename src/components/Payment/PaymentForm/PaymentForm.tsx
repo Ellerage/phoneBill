@@ -9,7 +9,7 @@ import { Button } from './PaymentForm.style'
 
 interface PaymentFormProps extends RouteComponentProps<{}> {
   code: string,
-  showError: any,
+  showError: Function,
   history: any
 }
 
