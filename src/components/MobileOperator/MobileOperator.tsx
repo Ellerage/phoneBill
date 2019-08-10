@@ -6,7 +6,9 @@ type MobileOperatorProps = {
   title: string
 }
 
-function MobileOperator ({ name, title } : MobileOperatorProps) {
+function MobileOperator ({ 
+  name, title 
+} : MobileOperatorProps) {
   return (
     <WrapMobileOperator>
       <StyledLink to={`/${name}`}>

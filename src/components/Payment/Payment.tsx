@@ -11,7 +11,7 @@ interface IPaymentProps {
   history: any
 }
 
-export function Payment ({ match, history }: IPaymentProps) {
+function Payment ({ match, history }: IPaymentProps) {
   const [errorsList, addErrors] = useState([])
   const [operatorInfo, setOperator] = useState({ title: '...', name: '...', code: '9' })
 
