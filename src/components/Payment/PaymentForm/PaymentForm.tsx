@@ -5,7 +5,7 @@ import PaymentFormInputAmount from './PaymentFormInputAmount'
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
 import API from '../../../services/api-service.js'
-import { Button } from './PaymentForm.style'
+import { Button, Form } from './PaymentForm.style'
 
 interface IPaymentFormProps extends RouteComponentProps<{}> {
   code: string,
@@ -58,14 +58,14 @@ const PaymentForm = ({code, showError, history}: IPaymentFormProps) => {
   }
 
   return (
-    <form onSubmit={sendForm}>
+    <Form onSubmit={sendForm}>
       <PaymentFormInputPhone phoneNumber={phoneNumber} changeValue={(val: string) => changePhoneNumber(val)} />
       <PaymentFormInputAmount amount={amount} changeValue={(val: string) => changeAmount(val)}/>
 
       <Button type="submit">
         {isLoad ? 'Опалата...' : 'Оплатить' }
       </Button>
-    </form>
+    </Form>
   );
 }
 

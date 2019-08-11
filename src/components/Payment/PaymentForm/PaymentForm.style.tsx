@@ -1,18 +1,24 @@
 import styled from "styled-components"
 
 export const Button = styled("button")`
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  vertical-align: middle;
-  border: 1px solid transparent;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: .25rem;
-  user-select: none;
-  margin-top: 15px;
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+	background: #2471FF;
+	border: none;
+	padding: 10px 20px 10px 20px;
+	border-bottom: 3px solid #5994FF;
+	border-radius: 3px;
+	color: #D2E2FF;
+  
+  :hover{
+    background: #6B9FFF;
+    color:#fff;
+  }
+`;
+
+export const Form = styled.form`
+  max-width: 100vw;
+	margin: 50px auto;
+	background: #fff;
+	border-radius: 2px;
+	padding: 0px;
+	font-family: Georgia, "Times New Roman", Times, serif;
 `;

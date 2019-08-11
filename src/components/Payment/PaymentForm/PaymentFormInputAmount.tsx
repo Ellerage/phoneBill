@@ -22,7 +22,7 @@ function PaymentFormInputAmount ({ amount, changeValue } : PaymentFormInputAmoun
       <Input type="text" 
               id="amount"
               name="amount"
-              placeholder="Сумма пополнения" 
+              placeholder="Сумма пополнения"
               required
               onChange={inputAmount}
               value={amount}/>

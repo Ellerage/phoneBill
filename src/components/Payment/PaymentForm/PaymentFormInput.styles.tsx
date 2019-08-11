@@ -1,35 +1,45 @@
 import styled from 'styled-components';
 
 export const FromGroup = styled("div")`
-  margin-bottom: 1rem;
+  display: block;
+	padding: 9px;
+	border:1px solid #DDDDDD;
+	margin-bottom: 30px;
+	border-radius: 3px;
 `;
 
 export const Label = styled("label")`
-  display: inline-block;
-  margin-bottom: .5rem;
-  color: #212529;
-  font-size: 1rem;
+	display: block;
+	float: left;
+	margin-top: -19px;
+	background: #FFFFFF;
+	height: 14px;
+	padding: 2px 5px 2px 5px;
+	color: #B9B9B9;
+	font-size: 15px;
+	overflow: hidden;
+	font-family: Arial, Helvetica, sans-serif;
 `;
 
 export const Input = styled("input")`
-  display: block;
-  width: 90%;
-  height: calc(1.5em + .75rem + 2px);
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: .25rem;
-  overflow: visible;
+	box-sizing: border-box;
+	width: 100%;
+	display: block;
+	outline: none;
+	border: none;
+	height: 50px;
+	line-height: 25px;
+	font-size: 18px;
+	padding: 0;
 `;
 
 export const Small = styled("small")`
-  color: #6c757d;
-  display: block;
-  margin-top: .25rem;
+	background: #F3F3F3;
+	display: block;
+	padding: 3px;
+	margin: 0 -9px -9px -9px;
+	text-align: center;
+	color: #C0C0C0;
+	font-size: 14px;
 `;
 
