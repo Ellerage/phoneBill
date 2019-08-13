@@ -1,0 +1,72 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "external \"react\"": 0,
+      "external \"styled-components\"": 1,
+      "external \"@babel/runtime/regenerator\"": 2,
+      "node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!services/api-service.js": 3,
+      "external \"next/router\"": 4,
+      "external \"next/link\"": 5,
+      "multi ./pages/index.tsx": 6,
+      "multi ./pages/payment.tsx": 7,
+      "multi node_modules/next/dist/pages/_app.js": 8,
+      "node_modules/next/dist/pages/_app.js": 9,
+      "external \"next/app\"": 10,
+      "multi node_modules/next/dist/pages/_error.js": 11,
+      "node_modules/next/dist/pages/_error.js": 12,
+      "external \"next/error\"": 13,
+      "multi node_modules/next/dist/pages/_document.js": 14,
+      "node_modules/next/dist/pages/_document.js": 15,
+      "external \"next/document\"": 16,
+      "node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--5!pages/payment.tsx 82aab267367940c91906936943e48386": 17,
+      "node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--5!pages/index.tsx 8277cc9429298a995b9e3d8e43483c33": 18,
+      "multi ./pages/_app.js": 8,
+      "node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!pages/_app.js": 9,
+      "multi ./pages/_document.js": 14,
+      "node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!pages/_document.js": 15
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7,
+      "8": 8,
+      "9": 9,
+      "10": 10,
+      "11": 11,
+      "12": 12,
+      "13": 13,
+      "14": 14,
+      "15": 15,
+      "16": 16,
+      "17": 17,
+      "18": 18
+    }
+  },
+  "chunks": {
+    "byName": {
+      "static\\_fFfFaADL_5yExOdeGZJr\\pages\\index.js": 0,
+      "static\\_fFfFaADL_5yExOdeGZJr\\pages\\payment.js": 1,
+      "static\\_fFfFaADL_5yExOdeGZJr\\pages\\_app.js": 2,
+      "static\\_fFfFaADL_5yExOdeGZJr\\pages\\_error.js": 3,
+      "static\\_fFfFaADL_5yExOdeGZJr\\pages\\_document.js": 4,
+      "static\\8GSj~mr6nM_qo5vYAEXxj\\pages\\_app.js": 5,
+      "static\\8GSj~mr6nM_qo5vYAEXxj\\pages\\_document.js": 6,
+      "static\\8GSj~mr6nM_qo5vYAEXxj\\pages\\index.js": 7,
+      "static\\8GSj~mr6nM_qo5vYAEXxj\\pages\\payment.js": 8,
+      "static\\8GSj~mr6nM_qo5vYAEXxj\\pages\\_error.js": 9
+    },
+    "bySource": {},
+    "usedIds": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  }
+}
